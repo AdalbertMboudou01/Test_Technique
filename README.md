@@ -59,28 +59,25 @@ NativeModules
 
 ## Préparation de l’environnement
 
-**1. Installation des outils React Native**
-Installer Node.js ≥ 20 :
 
-```bash
-sudo apt install nodejs npm
-cd React_App
-npm install    # ou yarn install
-
-
-```
-**2. Environnement mobile**
+**1. Environnement mobile**
   - Emulateur Android<br>
     ou<br>
   - Un appareil Android connecté
-    
+
+**2. Installer le CLI React Native localement**
+```bash
+dans React_App (cd React_App) exécutez
+npm install --save-dev @react-native-community/cli
+npm install react-native@0.82.1
+```
 ---
 
 ## Lancement de l'appli React
 
 Démarrer Metro (bundler React Native) :
 ```bash
-npm start      # ou yarn start (ou npx react-native start)
+npm rustart      # ou yarn start (ou npx react-native start)
 ```
 Dans un autre terminal (sans fermer Metro) :
 ```bash
