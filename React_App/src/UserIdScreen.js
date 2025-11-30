@@ -15,15 +15,29 @@ export default function UserIdScreen() {
   };
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text>Enter User ID (1 or 3):</Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 20,
+      }}
+    >
+      <Text style={{ fontSize: 18, marginBottom: 15 }}>
+        Enter User ID (1 or 3):
+      </Text>
 
       <TextInput
         value={userId}
         onChangeText={setUserId}
         style={{
-          borderWidth: 1, padding: 10, marginVertical: 10
+          width: "80%",
+          borderWidth: 1,
+          borderRadius: 8,
+          padding: 10,
+          marginBottom: 20,
         }}
+        placeholder="Enter a user ID"
       />
 
       <Button title="Save User ID" onPress={save} />

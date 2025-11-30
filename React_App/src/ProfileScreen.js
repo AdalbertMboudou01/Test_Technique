@@ -13,15 +13,28 @@ export default function ProfileScreen() {
 
   if (!userId) {
     return (
-      <View style={{ padding: 20 }}>
+      <View style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 20,
+      }}>
         <Text>No userId found. Go to tab 1 to save one.</Text>
       </View>
     );
   }
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text>User ID: {userId}</Text>
+    <View style={{
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      padding: 20,
+    }}>
+      <Text style={{ marginBottom: 20, fontSize: 18 }}>
+        User ID: {userId}
+      </Text>
+
       <Button
         title="Open Flutter Profile"
         onPress={() => FlutterAzeoo.openProfile(userId)}
