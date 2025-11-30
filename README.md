@@ -73,15 +73,15 @@ npm install react-native@0.82.1
 ```
 ---
 
-## Lancement de l'appli React
+## Lancement de l'appli React (toujours dans cd React_App)
 
 Démarrer Metro (bundler React Native) :
 ```bash
-npm rustart      # ou yarn start (ou npx react-native start)
+npm run start     
 ```
-Dans un autre terminal (sans fermer Metro) :
+Sans fermer Metro, ouvrir un autre terminal et exécutez :
 ```bash
-npm run android   # Android (npx react-native run-android)
+npm run android   
 ```
 L’application se lance alors sur l’émulateur ou l’appareil connecté.
 
