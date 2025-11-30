@@ -1,6 +1,8 @@
-# 📱 Test Technique — React Native + Flutter Module<br>
+# 📱 Test Technique — React Native + Flutter Module
+<br>
 
-## Vue d'ensemble
+## 👁️ Vue d'ensemble
+
 
 Ce dépôt combine deux technologies :
 
@@ -14,7 +16,7 @@ L’application React Native permet :
 
 ---
 
-## Structure du dépôt
+## 🗂️ Structure du dépôt
 
 
 ```
@@ -38,7 +40,7 @@ NativeModules
 
 ---
 
-## Choix techniques
+## 🛠️ Choix techniques
 
 ### **React Native**
 - **React Native 0.82.1**
@@ -57,7 +59,7 @@ NativeModules
 
 ---
 
-## Préparation de l’environnement
+## 🧰 Préparation de l'environnement
 
 
 **1. Environnement mobile**
@@ -74,7 +76,7 @@ npm install react-native@0.82.1
 ```
 ---
 
-## Lancement de l'appli React (toujours dans cd React_App)
+## 🚀 Lancement de l'application React
 
 Démarrer Metro (bundler React Native) :
 ```bash
@@ -88,13 +90,13 @@ L’application se lance alors sur l’émulateur ou l’appareil connecté.
 
 ---
 
-## Utilisation de l'appli
+## 📲 Utilisation de l'application
 
-### Onglet User
+### 👤 Onglet User
 - Entrer un identifiant utilisateur (ex : 1 ou `3`)  
 - Appuyer sur Save
 
-### Onglet Profile
+### 👤✔️ Onglet Profile
 - L’ID sauvegardé s’affiche  
 - Appuyer sur Open Flutter Profile → affiche l'utilisateur Samuel Verdier
 
