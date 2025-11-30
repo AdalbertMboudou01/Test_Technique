@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { View, TextInput, Button, Text } from "react-native";
+import { View, TextInput, Button, Text, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function UserIdScreen() {
   const [userId, setUserId] = useState("");
 
   useEffect(() => {
-    AsyncStorage.getItem("userId").then(v => v && setUserId(v));
+    AsyncStorage.getItem("userId").then((v) => v && setUserId(v));
   }, []);
 
   const save = async () => {
+    // 🔥 Autoriser uniquement 1 ou 3
+    if (userId !== "1" && userId !== "3") {
+      Alert.alert(
+        "Erreur",
+        "Seuls les userId 1 et 3 sont acceptés.\nVeuillez réessayer."
+      );
+      return;
+    }
+
     await AsyncStorage.setItem("userId", userId);
-    alert("Saved!");
+    Alert.alert("Saved!");
+
+    // ❌ Pas de navigation automatique
   };
 
   return (
@@ -29,7 +40,12 @@ export default function UserIdScreen() {
 
       <TextInput
         value={userId}
-        onChangeText={setUserId}
+        onChangeText={(text) => {
+          // 🔥 Empêche la saisie de lettres et caractères non numériques
+          const cleaned = text.replace(/[^0-9]/g, "");
+          setUserId(cleaned);
+        }}
+        keyboardType="numeric"
         style={{
           width: "80%",
           borderWidth: 1,
