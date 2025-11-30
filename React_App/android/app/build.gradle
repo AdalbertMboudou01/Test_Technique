@@ -1,0 +1,90 @@
+apply plugin: "com.android.application"
+apply plugin: "org.jetbrains.kotlin.android"
+apply plugin: "com.facebook.react"
+
+/**
+ * React Native configuration block
+ */
+react {
+    autolinkLibrariesWithApp()
+}
+
+def enableProguardInReleaseBuilds = false
+def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
+
+android {
+    ndkVersion rootProject.ext.ndkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdk rootProject.ext.compileSdkVersion
+
+    namespace "com.react_app"
+
+    defaultConfig {
+        applicationId "com.react_app"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
+    /**
+     * BuildTypes
+     * ⚠️ IMPORTANT : Le buildType "profile" NE DOIT PAS exister dans RN 0.76.
+     * RN ne fournit pas de variant "profile" → cela casse tout.
+     */
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles(
+                getDefaultProguardFile("proguard-android.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+}
+
+/**
+ * Dependencies
+ */
+dependencies {
+    // React Native auto-managed dependency
+    implementation("com.facebook.react:react-android")
+
+    if (hermesEnabled.toBoolean()) {
+        implementation("com.facebook.react:hermes-android")
+    } else {
+        implementation jscFlavor
+    }
+
+    /**
+     * Flutter AAR dependencies (built from "flutter build aar")
+     * ✔️ ENLEVER profileImplementation
+     */
+    debugImplementation   'com.example.azeoo_module_sdk:flutter_debug:1.0'
+    releaseImplementation 'com.example.azeoo_module_sdk:flutter_release:1.0'
+}
+
+/**
+ * Repositories for Flutter AARs
+ */
+repositories {
+    maven {
+        url '/home/a-mboudou/Bureau/Technical_Test/azeoo_module_sdk/build/host/outputs/repo'
+    }
+    maven {
+        url "https://storage.googleapis.com/download.flutter.io"
+    }
+}
