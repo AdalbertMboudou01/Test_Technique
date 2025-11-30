@@ -61,6 +61,7 @@ NativeModules
 
 
 **1. Environnement mobile**
+  - Un IDE, Android studio de préférence
   - Emulateur Android<br>
     ou<br>
   - Un appareil Android connecté
