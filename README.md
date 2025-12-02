@@ -24,9 +24,8 @@ Test_Technique-main/
 ├── React_App/ # Application React Native
 │ ├── App.tsx # Point d’entrée et navigation par onglets
 │ ├── src/
-│ │ ├── UserIdScreen.js # Saisie et sauvegarde de l’ID utilisateur via
-AsyncStorage
-│ │ └── ProfileScreen.js # Lecture de l’ID et appel du module Flutter via
+│   ├── UserIdScreen.js # Saisie et sauvegarde de l’ID utilisateur via
+|   ├── ProfileScreen.js # Lecture de l’ID et appel du module Flutter via
 NativeModules
 │ ├── __tests__/ # Tests Jest (simple rendu de l’application)
 │ └── android/ et ios/ # Projets natifs générés par React Native
